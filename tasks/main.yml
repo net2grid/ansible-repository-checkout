@@ -18,7 +18,7 @@
 - name: Run composer install on checked out repository
   composer:
     command: install
-    working_dir: "{{ config_directory }}"
+    working_dir: "{{ checkout_destination }}"
 
 - name: Create symlinks
   file:
@@ -26,3 +26,10 @@
     dest: "{{ item.dest }}"
     state: link
   with_items: "{{ create_symlinks }}"
+
+- name: Make directories writeable
+  file:
+    path: "{{ checkout_destination }}"
+    state: directory
+    mode: 0777
+  with_items: "{{ writeable_dirs }}"
