@@ -1,0 +1,23 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: chris
+  description: Checkout repository and create symlinks.
+  company: "NET2GRID BV"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.2
+  platforms:
+    - name: EL
+      versions:
+      - 6
+      - 7
+    - name: Ubuntu
+      versions:
+      - all
+    - name: Debian
+      versions:
+      - all
+    - name: Archlinux
+      versions:
+      - all
