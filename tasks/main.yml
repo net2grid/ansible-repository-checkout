@@ -17,7 +17,7 @@
     mode: 0755
   with_items: "{{ create_directories }}"
 
-- name: Run composer install on checked out repository
+- name: Run Composer on checked out repository
   composer:
     command: install
     working_dir: "{{ item }}"
