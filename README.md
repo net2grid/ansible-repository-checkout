@@ -20,17 +20,27 @@ None.
 
 Inside `vars/repository_checkout.yml`:
 
-    repository_url: "git@bitbucket.org:net2grid/repository-checkout.git"
-
-    checkout_destination: "/path/to/checkout/location"
-
-    config_directory: "/path/to/config/directory/to/create"
-
+    repositories:
+      - url: "git@github.com:somebody/some-repository.git"
+        destination: "/some/directory"
+      - url: "git@github.com:somebody/some-other-repository.git"
+        destination: "/some/other-directory"
+        branch: a_branch_name
+    
+    create_directories:
+      - "/a/directory-that-needs-to-be-created"
+      - "/a/second-directory-that-needs-to-be-created"
+    
+    composer_install:
+      - "/some/directory"
+    
     create_symlinks:
-      - src: /location/of/existing/file
-        dest: /location/of/created/symlink
-      - src: /location/of/existing/file2
-        dest: /location/of/created/symlink2
+      - src: /some/dir/config.ini
+        dest: /some/other-directory/config.ini
+
+    writeable_dirs:
+      - "some/directory/cache/"
+      - "some/directory/logs/"
 
 ## License
 

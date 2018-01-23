@@ -3,6 +3,7 @@
 - name: Checkout repository
   git:
     repo: "{{ item.url }}"
+    version: "{{ item.branch | default('master')}}"
     dest: "{{ item.destination }}"
     accept_hostkey: yes
     key_file: "{{ ssh_user_homedir }}/.ssh/id_rsa"
