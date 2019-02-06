@@ -18,6 +18,12 @@
     mode: 0755
   with_items: "{{ create_directories }}"
 
+- name: Set up Composer timeout
+  composer:
+    command: config
+    arguments: "process-timeout {{ composer_timeout }}"
+    global_command: yes
+
 - name: Run Composer on checked out repository
   composer:
     command: install
